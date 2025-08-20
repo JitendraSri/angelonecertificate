@@ -1,0 +1,391 @@
+@keyframes background-pulse {
+    0% {
+        background: #0a192f;
+    }
+    50% {
+        background: #0f172a;
+    }
+    100% {
+        background: #0a192f;
+    }
+}
+
+@keyframes floating-emojis {
+    0% { 
+        transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    }
+    50% { 
+        transform: translate(-50%, -50%) rotate(180deg) scale(1.1);
+    }
+    100% { 
+        transform: translate(-50%, -50%) rotate(360deg) scale(1);
+    }
+}
+
+/* --- Base Styles --- */
+body {
+    background: #0a192f;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    min-height: 100vh;
+    position: relative;
+    animation: background-pulse 10s infinite ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem;
+    animation: professional-pulse 30s infinite ease-in-out;
+    position: relative;
+}
+
+body::before {
+    content: "💻 📊 📈 ⚙️ 💾 🚀 📡 🔌 🤖";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0deg);
+    font-size: 15rem;
+    line-height: 1;
+    white-space: nowrap;
+    color: #5eead4;
+    opacity: 0.05;
+    filter: blur(5px);
+    z-index: -1;
+    pointer-events: none;
+    animation: floating-emojis 15s infinite ease-in-out alternate;
+}
+
+body::after {
+    content: "📁 🔍 ☁️ ⚡️ 🧠 💥 🖥️ ⚙️";
+    position: fixed;
+    bottom: -10%;
+    right: -10%;
+    transform: rotate(20deg);
+    font-size: 10rem;
+    line-height: 1;
+    white-space: nowrap;
+    color: #a855f7;
+    opacity: 0.05;
+    filter: blur(4px);
+    z-index: -1;
+    pointer-events: none;
+    animation: floating-emojis 18s infinite ease-in-out alternate-reverse;
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    z-index: 1;
+}
+
+/* Professional Card Design */
+.card {
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(94, 234, 212, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 1;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(94, 234, 212, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    border-color: rgba(94, 234, 212, 0.2);
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+.card-title {
+    color: #5eead4;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    position: relative;
+    display: inline-block;
+    text-shadow: 0 2px 10px rgba(94, 234, 212, 0.3);
+}
+
+.card-subtitle {
+    color: #94a3b8;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+}
+
+/* Modern Typography */
+.lead {
+    color: #94a3b8;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 400;
+}
+
+/* Professional Form Styling */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+#rollNo {
+    background-color: rgba(30, 41, 59, 0.7);
+    border: 1px solid rgba(94, 234, 212, 0.2);
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 1rem;
+    color: #f8fafc;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#rollNo::placeholder {
+    color: #94a3b8;
+    opacity: 0.7;
+}
+
+#rollNo:focus {
+    background-color: rgba(30, 41, 59, 0.9);
+    border-color: #5eead4;
+    box-shadow: 0 0 0 3px rgba(94, 234, 212, 0.2);
+    outline: none;
+}
+
+/* Modern Button Design */
+.btn-primary {
+    background: linear-gradient(135deg, #5eead4 0%, #38bdf8 100%);
+    border: none;
+    border-radius: 10px;
+    padding: 14px 28px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #0f172a;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 0 4px 15px rgba(94, 234, 212, 0.2);
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+    z-index: -1;
+    transition: opacity 0.4s ease;
+    opacity: 0;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(94, 234, 212, 0.3);
+    color: #0f172a;
+}
+
+.btn-primary:hover::before {
+    opacity: 1;
+}
+
+.btn-primary:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 8px rgba(94, 234, 212, 0.3);
+}
+
+/* Enhanced Canvas Styling */
+#certificateCanvas {
+    width: 100%;
+    max-width: 800px;
+    margin: 1.5rem auto;
+    display: block;
+    border-radius: 12px;
+    border: 1px solid rgba(94, 234, 212, 0.2);
+    background: rgba(15, 23, 42, 0.9);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0.95;
+}
+
+#certificateCanvas:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(94, 234, 212, 0.2);
+    opacity: 1;
+}
+
+/* Alert Styling */
+.alert {
+    background: rgba(30, 41, 59, 0.9);
+    border: 1px solid rgba(94, 234, 212, 0.2);
+    border-left: 4px solid #5eead4;
+    border-radius: 10px;
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #e2e8f0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.alert-danger {
+    background: rgba(127, 29, 29, 0.9);
+    border-left-color: #fecaca;
+    color: #fecaca;
+}
+
+.alert-success {
+    background: rgba(6, 95, 70, 0.9);
+    border-left-color: #6ee7b7;
+    color: #d1fae5;
+}
+
+/* Utility Classes */
+.glass-effect {
+    backdrop-filter: blur(12px);
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(94, 234, 212, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.text-muted {
+    color: #94a3b8 !important;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Responsive Design */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem 0.5rem;
+    }
+    
+    .card {
+        padding: 1.5rem 1.25rem;
+        margin: 0 0.5rem;
+        border-radius: 12px;
+    }
+    
+    .card-title {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .card-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .lead {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    
+    body::before {
+        font-size: 8rem;
+        top: 40%;
+    }
+    
+    body::after {
+        font-size: 6rem;
+        bottom: -10%;
+        right: -20%;
+    }
+    
+    #certificateCanvas {
+        margin: 0.5rem;
+        border-radius: 8px;
+    }
+    
+    .btn-primary {
+        width: 100%;
+        padding: 0.8rem 1rem;
+        font-size: 0.95rem;
+    }
+    
+    .form-control {
+        padding: 0.8rem 1rem;
+        font-size: 0.95rem;
+    }
+    
+    .alert {
+        padding: 0.8rem 1rem;
+        margin: 1rem 0;
+        font-size: 0.9rem;
+    }
+    
+    .container {
+        padding: 0.5rem;
+    }
+    
+    .glass-effect {
+        backdrop-filter: blur(8px);
+        padding: 0.875rem 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-title {
+        font-size: 1.75rem;
+    }
+    
+    .card {
+        padding: 1.5rem 1rem;
+    }
+}
+
+/* Focus Management for Accessibility */
+*:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+.btn-primary:focus, .btn-success:focus, .btn-info:focus {
+    outline: none;
+    box-shadow: 
+        0 0 0 3px rgba(59, 130, 246, 0.3),
+        0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
